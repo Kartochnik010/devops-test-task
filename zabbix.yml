@@ -1,0 +1,6 @@
+---
+- name: Deploy Zabbix
+  hosts: [zabbix]
+  become: true
+  roles:
+    - zabbix_compose

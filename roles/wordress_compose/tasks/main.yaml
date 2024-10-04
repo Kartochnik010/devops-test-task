@@ -1,0 +1,9 @@
+---
+
+- name: PREREQUISITES FOR wordpress
+  include_tasks:
+    file: prerequisites.yaml
+
+- name: INSTALL wordpress
+  include_tasks:
+    file: install.yaml

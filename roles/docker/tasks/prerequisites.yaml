@@ -1,0 +1,23 @@
+---
+
+- name: Gather facts
+  setup:
+
+- name: Setup for APT package manager
+  block:
+    - name: Add Docker repo using key from URL
+      deb822_repository:
+        name: docker-ce-stable
+        state: present
+        enabled: true
+        types: deb
+        uris: "https://download.docker.com/linux/{{ ansible_distribution | lower }}"
+        suites: "{{ ansible_distribution_release }}"
+        components: [ "stable" ]
+        signed_by: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
+    - name: Update APT package cache
+      apt:
+        update_cache: yes
+  when: ansible_pkg_mgr == "apt"
+
+

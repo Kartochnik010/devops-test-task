@@ -1,0 +1,16 @@
+[zabbix]
+94.158.245.116 ansible_ssh_user=trainee assigned_hostname=server1 ansible_ssh_private_key_file=creds/rsa_key_priv ansible_ssh_port=22022 
+; 142.93.107.5 ansible_ssh_user=root assigned_hostname=server1 ansible_ssh_private_key_file=creds/ansible
+
+[wordpress]
+94.158.245.105 ansible_ssh_user=trainee assigned_hostname=server2 ansible_ssh_private_key_file=creds/rsa_key_priv ansible_ssh_port=22022
+; 64.226.105.83 ansible_ssh_user=root assigned_hostname=server2 ansible_ssh_private_key_file=creds/ansible
+
+
+[zabbix-agent:children]
+wordpress
+
+
+[docker:children]
+wordpress
+zabbix

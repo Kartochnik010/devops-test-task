@@ -1,0 +1,14 @@
+---
+
+- name: Create zabbix dir
+  file:
+    path: /etc/zabbix
+    state: directory
+
+- name: Create zabbix config file
+  template:
+    src: zabbix_agentd.conf.j2
+    dest: /etc/zabbix/zabbix_agentd.conf
+    owner: root
+    group: root
+    mode: 0644

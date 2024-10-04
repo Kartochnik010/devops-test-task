@@ -1,0 +1,8 @@
+---
+
+- name: Make sure wordpress directories exist
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - /opt/wordpress

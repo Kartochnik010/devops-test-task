@@ -1,0 +1,16 @@
+---
+
+- name: Make sure zabbix directories exist
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - /opt/zabbix
+
+- name: Create caddy file
+  template:
+    src: Caddyfile.j2
+    dest: /opt/zabbix/Caddyfile
+    owner: root
+    group: root
+    mode: 0644

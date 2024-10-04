@@ -1,0 +1,3 @@
+zabbix_agent:
+  server_ip: "{{ groups['zabbix'][0] }}"
+  hostname: "{{ assigned_hostname }}"

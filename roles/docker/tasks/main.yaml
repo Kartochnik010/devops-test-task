@@ -1,0 +1,22 @@
+---
+
+- name: PREREQUISITES FOR DOCKER
+  include_tasks:
+    file: prerequisites.yaml
+  tags:
+    - docker::prerequisites
+    - docker
+
+- name: INSTALL DOCKER
+  include_tasks:
+    file: install.yaml
+  tags:
+    - docker::install
+    - docker
+
+- name: CONFIGURE DOCKER
+  include_tasks:
+    file: configure.yaml
+  tags:
+    - docker::configure
+    - docker

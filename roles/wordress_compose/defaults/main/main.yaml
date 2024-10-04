@@ -1,0 +1,4 @@
+wordpress_compose:
+  MYSQL_ROOT_PASSWORD: 0000
+  MYSQL_USER: useruser
+  MYSQL_PASSWORD: rootroot

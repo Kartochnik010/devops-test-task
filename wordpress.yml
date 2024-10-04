@@ -1,0 +1,6 @@
+---
+- name: Deploy Wordpress
+  hosts: [wordpress]
+  become: true
+  roles:
+    - wordress_compose

@@ -1,0 +1,9 @@
+---
+
+- name: PREREQUISITES FOR zabbix
+  include_tasks:
+    file: prerequisites.yaml
+
+- name: INSTALL zabbix
+  include_tasks:
+    file: install.yaml

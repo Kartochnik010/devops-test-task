@@ -1,0 +1,5 @@
+zabbix_compose:
+  MYSQL_ROOT_PASSWORD: 0000
+  MYSQL_USER: zabbix
+  MYSQL_PASSWORD: zabbix
+  

@@ -1,0 +1,30 @@
+- name: Make sure /etc/docker directory exists
+  file:
+    path: /etc/docker
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Add ansible managed file
+  copy:
+    content: "Docker configuration is managed by Ansible\n"
+    dest: /etc/docker/README
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Create docker daemon config file
+  template:
+    src: daemon.json.j2
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: 0644
+  notify: Restart docker
+
+- name: Enable and start docker service
+  service:
+    name: docker
+    enabled: yes
+    state: started

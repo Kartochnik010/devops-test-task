@@ -1,0 +1,15 @@
+- name: Compose Zabbix
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+    - { src: compose.yaml.j2, dest: /opt/zabbix/compose.yaml }
+    - { src: Caddyfile.j2, dest: /opt/zabbix/Caddyfile}
+
+  notify: Restart Zabbix
+
+- name: up
+  shell: |
+    docker compose -f compose.yaml up -d
+  args:
+    chdir: /opt/zabbix
